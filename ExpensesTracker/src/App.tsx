@@ -1,10 +1,19 @@
 import React from "react";
-import ExpensesForm from "./Component/ExpensesForm";
+
+import ExpensesList from "./ExpensesTracker/expensesList";
 
 const App = () => {
+  const ListofItem = [
+    { id: 1, description: "áaa", amount: 50, category: "fruits" },
+    { id: 2, description: "bbb", amount: 35, category: "Vegetables" },
+  ];
+
   return (
     <div>
-      <ExpensesForm />
+      <ExpensesList
+        expenses={ListofItem}
+        onDelete={() => console.log("Deleted")}
+      />
     </div>
   );
 };
