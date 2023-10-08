@@ -4,8 +4,6 @@ import ExpensesList from "./ExpensesTracker/ExpensesList";
 import ExpensesFilter from "./ExpensesTracker/ExpensesFilter";
 import ExpensesForm from "./ExpensesTracker/ExpensesForm";
 
-export const categories = ["Groceries", "Utilities", "Entertainment"];
-
 const App = () => {
   const [listofItem, setListOfItem] = useState([
     { id: 1, description: "áaa", amount: 50, category: "Groceries" },
@@ -20,7 +18,14 @@ const App = () => {
   return (
     <div className="col-8">
       <div className="mb-3">
-        <ExpensesForm />
+        <ExpensesForm
+          onSubmit={(listItem) =>
+            setListOfItem([
+              ...listofItem,
+              { ...listItem, id: listofItem.length + 1 },
+            ])
+          }
+        />
       </div>
 
       <div className="mb-3">
